@@ -1,9 +1,12 @@
+"""Module providing a function printing python version."""
+
 import sys
 from calculator import Calculator
 
 
 # Main application code
 def main():
+    """Main module Entry Pointcd"""
     calc = Calculator()
 
     if len(sys.argv) < 4:
