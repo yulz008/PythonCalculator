@@ -3,8 +3,7 @@
 import unittest
 import os
 import sys
-# Import the calculator module from the app package
-from app.calculator import Calculator
+
 
 # Get the absolute path of the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -12,6 +11,9 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Add the parent directory of the current directory to the Python path
 parent_dir = os.path.join(current_dir, '..')
 sys.path.append(parent_dir)
+
+# Import the calculator module from the app package
+from app.calculator import Calculator
 
 
 # Unit tests for the Calculator class
