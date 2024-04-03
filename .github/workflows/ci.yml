@@ -27,5 +27,5 @@ jobs:
 
     - name: Run unit tests
       run: |
-        pylint app/*py
+        pylint **/*.py
         python tests/test_calculator.py
