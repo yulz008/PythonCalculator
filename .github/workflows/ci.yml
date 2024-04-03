@@ -24,8 +24,10 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pylint
         
-
+    - name: Running Linter
+     run: |
+        pylint app/*.py
+        
     - name: Run unit tests
       run: |
-        pylint app/*.py
         python tests/test_calculator.py
