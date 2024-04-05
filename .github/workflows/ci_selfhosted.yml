@@ -13,12 +13,14 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest]
-        python: [ 3.9.13]
+        python: [3.9.13]
         exclude:
-
           - os: windows-latest
             python: 3.8.15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      
+      # Add this step to check Python version
+      - name: Check Python version
+        run: python --version
