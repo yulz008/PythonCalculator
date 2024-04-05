@@ -26,7 +26,7 @@ jobs:
         run: cd
 
       - name: Change directory to repository root
-        run: python "${{ github.workspace }}"\app.py
+        run: python "${{ github.workspace }}"\app\app.py
 
        # Add this step to check Python version
       - name: Check Python version
