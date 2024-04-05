@@ -1,4 +1,4 @@
-name: Python CI Github-hosted
+name: Github-hosted Runner
 
 on: push
 
