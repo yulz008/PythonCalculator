@@ -9,4 +9,4 @@ With Continous Integration (CI) - Github Actions
 For Future Improvements:
 - Documentation
 - Include Linter for the unit tests
-- other runners GitHubAction, SelfHosted, Jenkins 
+- other runners GitHubAction, SelfHosted, Jenkins  
