@@ -8,7 +8,7 @@ on:
 jobs:
   setup-versions-from-manifest:
     name: Setup ${{ matrix.python }} ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
