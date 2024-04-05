@@ -1,33 +1,46 @@
-name: Python CI Self-Hosted
+name: Validate Python e2e
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-
-    runs-on: self-hosted
-
+  setup-versions-from-manifest:
+    name: Setup ${{ matrix.python }} ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        python-version: [3.12]
+        os: [windows-latest]
+        python: [ 3.9.13]
+        exclude:
 
+          - os: windows-latest
+            python: 3.8.15
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: setup-python ${{ matrix.python }}
+        id: setup-python
+        uses: ./
+        with:
+          python-version: ${{ matrix.python }}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install pylint
-        
-    - name: Running Linter
-      run: |
-        pylint app/*.py
-        
-    - name: Run unit tests
-      run: |
-        python tests/test_calculator.py
+      - name: Check python-path
+        run: ./__tests__/check-python-path.sh '${{ steps.setup-python.outputs.python-path }}'
+        shell: bash
+
+      - name: Validate version
+        run: |
+          $pythonVersion = (python --version)
+          if ("Python ${{ matrix.python }}" -ne "$pythonVersion"){
+            Write-Host "The current version is $pythonVersion; expected version is ${{ matrix.python }}"
+            exit 1
+          }
+          $pythonVersion
+        shell: pwsh
+
+      - name: Run simple code
+        run: python -c 'import math; print(math.factorial(5))'
