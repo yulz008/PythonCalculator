@@ -20,10 +20,9 @@ jobs:
     steps:
      
 
-      - uses: actions/checkout@v3
-
-      - name: Reuse action
-        uses: ./.github/actions/build
+      - uses: actions/checkout@v4
+      - id: testLocalAction
+        uses: ./
         
       - name: Run with setup-python 3.5
         uses: ./
