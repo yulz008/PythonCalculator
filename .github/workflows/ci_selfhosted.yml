@@ -36,7 +36,7 @@ jobs:
         
       - name: Running Linter
         run: |
-          pylint ${{ github.workspace }}\app\*.py
+          pylint ${{ github.workspace }}\app/*.py
         
       - name: Run unit tests
         run: |
