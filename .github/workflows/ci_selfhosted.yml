@@ -1,4 +1,4 @@
-name: Validate Python e2e
+name: Self-Hosted Runner
 
 on:
   push:
