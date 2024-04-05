@@ -27,6 +27,10 @@ jobs:
 
       - name: Change directory to repository root
         run: cd "${{ github.workspace }}"
+
+       # Add this step to check Python version
+      - name: Check Python version
+        run: cd
         
         
       - name: Install dependencies
