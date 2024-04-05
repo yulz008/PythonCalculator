@@ -23,8 +23,9 @@ jobs:
       
       # Add this step to check Python version
       - name: Check Python version
-        run: python --version
-
+        run: cd
+        
+        
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
