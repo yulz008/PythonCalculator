@@ -1,11 +1,11 @@
-name: Python CI Github-hosted
+name: Python CI Self-Hosted
 
 on: push
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
