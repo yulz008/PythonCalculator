@@ -25,9 +25,8 @@ jobs:
       - name: Check Python version
         run: cd
 
-      - name: Checkout code again
-        uses: actions/checkout@v4
-
+      - name: Change directory to repository root
+        run: cd ${{ github.workspace }}
         
         
       - name: Install dependencies
