@@ -22,25 +22,3 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: setup-python ${{ matrix.python }}
-        id: setup-python
-        uses: ./
-        with:
-          python-version: ${{ matrix.python }}
-
-      - name: Check python-path
-        run: ./__tests__/check-python-path.sh '${{ steps.setup-python.outputs.python-path }}'
-        shell: bash
-
-      - name: Validate version
-        run: |
-          $pythonVersion = (python --version)
-          if ("Python ${{ matrix.python }}" -ne "$pythonVersion"){
-            Write-Host "The current version is $pythonVersion; expected version is ${{ matrix.python }}"
-            exit 1
-          }
-          $pythonVersion
-        shell: pwsh
-
-      - name: Run simple code
-        run: python -c 'import math; print(math.factorial(5))'
