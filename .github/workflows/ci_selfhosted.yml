@@ -19,7 +19,7 @@ jobs:
         operating-system: [windows-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Run with setup-python 3.5
         uses: ./
