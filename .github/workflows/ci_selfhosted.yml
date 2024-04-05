@@ -36,6 +36,7 @@ jobs:
         
       - name: Running Linter
         run: |
+          conda deactivate
           pylint ${{ github.workspace }}\app/*.py
         
       - name: Run unit tests
