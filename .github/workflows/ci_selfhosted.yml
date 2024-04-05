@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Reuse action
+        uses: ./.github/actions/build
+        
       - name: Run with setup-python 3.5
         uses: ./
         with:
