@@ -24,3 +24,16 @@ jobs:
       # Add this step to check Python version
       - name: Check Python version
         run: python --version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pylint
+        
+      - name: Running Linter
+        run: |
+          pylint app/*.py
+        
+      - name: Run unit tests
+        run: |
+          python tests/test_calculator.py
