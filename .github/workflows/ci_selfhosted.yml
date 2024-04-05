@@ -23,15 +23,11 @@ jobs:
       
       # Add this step to check Python version
       - name: Check Python version
-        run: cd
+        run: python --version
 
       - name: Change directory to repository root
         run: python ${{ github.workspace }}\app\app.py
-
-       # Add this step to check Python version
-      - name: Check Python version
-        run: cd
-        
+       
         
       - name: Install dependencies
         run: |
@@ -40,8 +36,8 @@ jobs:
         
       - name: Running Linter
         run: |
-          pylint app/*.py
+          pylint ${{ github.workspace }}\app\*.py
         
       - name: Run unit tests
         run: |
-          python tests/test_calculator.py
+          python ${{ github.workspace }}\tests\test_calculator.py
