@@ -1,4 +1,4 @@
-name: Python CI
+name: Python CI Self Hosted
 
 on: push
 
@@ -10,7 +10,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        python-version: [3.9, 3.10]  # List the Python versions you want to install
+        python-version: [3.12]  # List the Python versions you want to install
 
     steps:
     - name: Set up Python
