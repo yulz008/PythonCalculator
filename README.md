@@ -10,3 +10,4 @@ For Future Improvements:
 - Documentation
 - Include Linter for the unit tests
 - other runners GitHubAction, SelfHosted, Jenkins  
+- Docker
