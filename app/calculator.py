@@ -10,7 +10,8 @@ class Calculator:
     # Subtraction operation
     def subtract(self, a, b):
         """Subtraction Operation"""
-        return a - b
+        return a - b + 2
+
 
     # Multiplication operation
     def multiply(self, a, b):
