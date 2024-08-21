@@ -1,12 +1,18 @@
 PythonCalculator
 
-Usage: python app.py <operation> <num1> <num2>
+A simple calculator implemented on python. 
+
+To demonstrate Continous Integration (CI) - Github Actions
+
+### Usage
+
+```bash
+python app.py <operation> <num1> <num2>
+```
 Operations: add, subtract, multiply, divide
 
-With Continous Integration (CI) - Github Actions
 
-
-For Future Improvements:
+### For Future Improvements:
 - Documentation
 - Include Linter for the unit tests
 - other runners GitHubAction, SelfHosted, Jenkins  
