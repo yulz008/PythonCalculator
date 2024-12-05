@@ -1,0 +1,114 @@
+name: Firmware CI
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+concurrency:
+  group: firmware-ci-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+
+  job0:
+    name: CheckOut
+    runs-on: yulz-exp-runner
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check If Self-Hosted runner is available
+        run: |
+          echo "Self-hosted runner is available."
+
+  job1:
+    name: Build Firmware
+    runs-on: yulz-exp-runner
+    needs: job0
+
+    steps:
+      - name: Compile Firmware
+        run: |
+          echo "Compiling firmware..."
+
+  job2:
+    name: Run Unit Tests
+    runs-on: yulz-exp-runner
+    needs: job1
+
+    steps:
+      - name: Execute Unit Tests
+        run: |
+          echo "Running unit tests..."
+
+  job3:
+    name: Analyze Code Quality
+    runs-on: yulz-exp-runner
+    needs: job2
+
+    steps:
+      - name: Run Code Quality Analysis
+        run: |
+          echo "Analyzing code quality..."
+
+  job4:
+    name: Deploy to Test Environment
+    runs-on: yulz-exp-runner
+    needs: job3
+
+    steps:
+      - name: Deploy Firmware
+        run: |
+          echo "Deploying firmware to test environment..."
+
+  job5:
+    name: Performance Testing
+    runs-on: yulz-exp-runner
+    needs: job4
+
+    steps:
+      - name: Run Performance Tests
+        run: |
+          echo "Running performance tests..."
+
+  job6:
+    name: Security Scan
+    runs-on: yulz-exp-runner
+    needs: job5
+
+    steps:
+      - name: Scan for Vulnerabilities
+        run: |
+          echo "Scanning for vulnerabilities..."
+
+  job7:
+    name: Generate Reports
+    runs-on: yulz-exp-runner
+    needs: job6
+
+    steps:
+      - name: Generate Build and Test Report
+        run: |
+          echo "Generating build and test reports..."
+
+  job8:
+    name: Archive Artifacts
+    runs-on: yulz-exp-runner
+    needs: job7
+
+    steps:
+      - name: Upload Artifacts
+        run: |
+          echo "Archiving artifacts..."
+
+  job9:
+    name: Cleanup
+    runs-on: yulz-exp-runner
+    needs: job8
+
+    steps:
+      - name: Perform Cleanup
+        run: |
+          echo "Performing cleanup tasks..."
