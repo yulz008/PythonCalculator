@@ -16,4 +16,4 @@ Operations: add, subtract, multiply, divide
 - Include Linter for the unit tests
 - other runners GitHubAction, SelfHosted, Jenkins  
 - Docker
-- Other test
+- Other tests
